@@ -49,9 +49,27 @@
         the sphero will stop and change its main light to be red, indicating the
         end of the program.
 
+* **How do I use this code for _my_ Sphero?**
+
+  To use this code on your Sphero robot, download the _Sphero Edu - Coding for
+  Sphero_ app for
+  [iOS](https://itunes.apple.com/us/app/sphero-edu-coding-for-sphero-robots/id1017847674?mt=8)
+  or
+  [Android](https://play.google.com/store/apps/details?id=com.sphero.sprk&hl=en).
+  Simply copy and paste the Javascript code from this repository into a new
+  Javascript program and you're good to go!
+
+  For more information on how to program the Sphero, us the following sites:
+
+  * About Page: https://edu.sphero.com/about
+
+  * Sphero Javascript Programming wiki: https://sphero.docsapp.io/docs/get-started
+
+
+
 * **Collaborators**
 
-  * ***Dr. Dwayne Joseph, Project Leader*** -
+  * _**Dr. Dwayne Joseph**, Project Leader_ -
 
     Assistant Professor of Morehouse College's Department of Physics
     and Dual-Degree Engineering.
@@ -59,7 +77,7 @@
     Department Faulty Listing:
     http://www.morehouse.edu/academics/physics/faculty.html
 
-  * ***Orondé Jabari Booker, Lead Programmer*** -
+  * _**Orondé Jabari Booker**, Lead Programmer_ -
 
     Undergraduate Computer Science major of Washington University in St. Louis.
     Class of 2020

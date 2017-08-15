@@ -1,4 +1,7 @@
-# The Mathematics behind the detectElevation funtion
+<div style="text-align:center">
+  <h1>The Mathematics behind the detectElevation funtion</h1>
+</div>
+
 ***- Orondé Jabari Booker***
 
     var ...,
@@ -51,8 +54,8 @@ circumvent this, I reinterpreted the definitions of for mean and variance.
 **Problem with For Loops**
 
 <div style="text-align:center">
-  <img src="mean.png">
-  <img src="variance.png">
+  <p><img src="mean.png"></p>
+  <p><img src="variance.png"></p>
 </div>
 
 The code with an endless while loop, in which we will break once we successfully
@@ -82,6 +85,12 @@ In this case we get code similar to this:
 
         var variance = sum / 10;
       }
+
+Here we can see that computing the mean and variance in this manner result in a
+performance of O(n) for each iteration of the while loop (2 summations of n
+values; n equaling 10 in this case). This
+
+
 
 The problem with using for loops in this case is that it you unfortunately leads
 to calculating a sum for every iteration of code. Normally when programming for

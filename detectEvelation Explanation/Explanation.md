@@ -1,7 +1,4 @@
-<div style="text-align:center">
-  <h1>The Mathematics behind the detectElevation funtion</h1>
-</div>
-
+# The Mathematics behind the detectElevation funtion
 ***- Orondé Jabari Booker***
 
     var ...,
@@ -53,16 +50,16 @@ circumvent this, I reinterpreted the definitions of for mean and variance.
 
 **Problem with For Loops**
 
-<div style="text-align:center">
-  <p><img src="mean.png"></p>
-  <p><img src="variance.png"></p>
-</div>
+![](res/mean.png)
 
-The code with an endless while loop, in which we will break once we successfully
-break out of once we detect a change in elevation, thus ending the program.
+![](res/variance.png)
 
-Now say that we are trying to compute the mean and variance using for loops.
-In this case we get code similar to this:
+The bulk of the code runs within an endless while loop, out of which we will
+break once a change in elevation is successfully detected, thus ending the
+program.
+
+Below is an example of code that show what computing the mean and variance of
+the last ten reported values would look like:
 
 
       var vals = [0,0,0,0,0,0,0,0,0,0];
@@ -86,28 +83,38 @@ In this case we get code similar to this:
         var variance = sum / 10;
       }
 
-Here we can see that computing the mean and variance in this manner result in a
-performance of O(n) for each iteration of the while loop (2 summations of n
-values; n equaling 10 in this case). This
+Here we can see that computing the mean and variance in this manner results in a
+complexity of O(n) for each iteration of the while loop (2 summations of n
+values; n equaling 10 in this case). Considering the performance issues, I aimed
+for a complexity less than O(n), like O(1) or O(log n). To do this I simplified
+the process of computing a sum, and to show this I will use a thought experiment.
 
+**Simplifying Summation**
 
+Say that I am trying compute the sum of the last four values from a continuously
+updating queue of values (similar to our gyroscopic sensor). Let's say that the
+first four values are: a, b, c, and d. In that case the mean will be:
 
-The problem with using for loops in this case is that it you unfortunately leads
-to calculating a sum for every iteration of code. Normally when programming for
-an average computer, this inefficiency wouldn’t be a problem. However, our poor
-Sphero doesn’t seem up to that computational burden. So to calculate mean
-and variance, we:
+![](res/exampleSum0.png)
 
-1. Reduce the number of computations per cycle
-2. Take liberties with the definitions written above (possibly)
+Now let's observe what happens when the fifth value is recorded, e. Since we are
+only computing the mean for the last four values, the first, a, is replace with
+e. So the mean is now:
 
-Given these guidelines, I first started to work towards simplify the concept of
-a summation within the context of the program.
+![](res/exampleSum1.png)
 
-In code, we have array that contains a certain number of the last recorded
-values from the gyroscopic sensor. As a thought experiment, let’s assume that we
-are recording the last four values, with a new value being recorded each cycle.
-Now let’s imagine that four cycles have passed, meaning that we have four
-recorded values already. Let the following expression represent the mean of
-these supposed values (call them a,b,c,d and let their order the same as the
-order in which we record them):
+This can be rewritten as follows:
+
+![](res/sumRewrite0.png)
+
+![](res/sumRewrite1.png)
+
+Now let's define the α and ß as follows:
+
+![](res/alpha.png)
+
+![](res/beta.png)
+
+It's now obvious that α equals the previously calculated summation and ß is
+simply the difference between the newest recorded value and the value recorded
+four iterations ago.

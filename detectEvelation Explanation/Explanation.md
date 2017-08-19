@@ -190,3 +190,46 @@ the definition of variance as follows:
 ![](res/varianceRewrite3.png)
 
 ![](res/varianceRewrite4.png)
+
+With variance written this way, it became much easier to simplify computation.
+Since the value of the mean is known at any time, terms within the rewritten
+definition of variance that contained the mean were already solved for. This
+left a summation of squared values. I called this term _lambda_. Similar to the
+process of simplifying mean, lambda was also a variable to which a a _"ß-like"_
+value was added, resulting in code similar to the this:
+
+    lambda += (currPt**2 - lastPt**2) / n;
+
+Once the value of lambda is found, it was then added to the mean terms to
+produce the variance. The end result of computing mean and variance finalizes
+to code similar to this:
+
+    var vals = [0,0,0,0,0,0,0,0,0,0],
+      lastPt = 0,
+      currPt = 0,
+      count = 0,
+
+      mean = 0,
+
+      variance = 0,
+      lambda = 0;
+
+    while(true){
+      var place = count++ % 10;
+
+      lastPt = vals[place];
+      currPt = getValue();
+      vals[place] = currPt;
+
+      mean += (currPt - lastPt) / 10;
+
+      lambda += (currPt**2 - lastPt**2) / 10;
+      variance = lambda - mean**2;
+    }
+
+**Expectation vs Reality**
+
+Mathematically, this way of computing the mean and variance will produce the
+correct respective values. However, during testing, using this exact method
+proved to be troubling. After looking at the recorded data, it seemed that
+speed at which to Sphero recorded data wa

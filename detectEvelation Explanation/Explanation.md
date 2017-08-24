@@ -231,5 +231,25 @@ to code similar to this:
 
 Mathematically, this way of computing the mean and variance will produce the
 correct respective values. However, during testing, using this exact method
-proved to be troubling. After looking at the recorded data, it seemed that
-speed at which to Sphero recorded data wa
+proved to be troubling. After looking at the recorded data, it seemed that the
+speed at which to Sphero recorded data was fast enough for the variance between
+recordings to always be very small, making detecting when the initial
+acceleration of the Sphero very difficult. To combat this issue, a slightly
+less accurate value for variance was calculated by the following means:
+
+![](res/variance3.png)
+
+![](res/varianceApprox.png)
+
+Using this approximation rather than the actual value of variance, the Sphero
+was capable of consistently detecting the end of its initial acceleration, thus
+allowing for the function to execute properly. This changes the last few lines
+code to:
+
+      ...
+      lambda += (currPt**2 - lastPt**2) / 10;
+      variance = lambda + mean**2;
+    }
+
+In the source code you will find the resulting methods of calculating applied
+both the gyroscopic sensor's outputs for both pitch and roll.

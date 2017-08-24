@@ -49,6 +49,9 @@
         the sphero will stop and change its main light to be red, indicating the
         end of the program.
 
+    _This function require more rigous math to be resolved for its development.
+    To read the explanantion behind its creation go [here](explanation.md)!_
+
 * **How do I use this code for _my_ Sphero?**
 
   To use this code on your Sphero robot, download the _Sphero Edu - Coding for

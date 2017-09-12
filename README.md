@@ -4,7 +4,7 @@
 
   The purpose of this project was to program the Sphero 2.0 to be able to move
   in various different ways in order to later use the robot to simulate the
-  behavior or larvae.
+  behavior of larvae.
 
 
 * **Functions**

@@ -160,7 +160,7 @@ definitions of mean and variance.
 
 ![](res/variance2.png)
 
-Looking at the definition of mean, it is clean that mean is merely the quotient
+Looking at the definition of mean, it is clear that mean is merely the quotient
 of the summation of a given set of numbers over that set's size (or length).
 After constructing and analyzing my thought experiment, I realized that the
 summation of the equation can be represented as a _"ß-like"_ value, which would
